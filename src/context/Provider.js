@@ -5,10 +5,10 @@ import MyContext from './MyContext';
 function Provider({ children }) {
   const [dataAPI, setDataAPI] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-
+  // https://swapi-trybe.herokuapp.com/api/planets/
   useEffect(() => {
     const getPlanetsAPI = async () => {
-      const { results } = await fetch('https://swapi-trybe.herokuapp.com/api/planets/').then((response) => response.json()) || [];
+      const { results } = await fetch('https://swapi.dev/api/planets').then((response) => response.json()) || [];
       for (let i = 0; i < results.length; i += 1) {
         delete results[i].residents;
       }
