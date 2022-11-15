@@ -8,7 +8,7 @@ function Provider({ children }) {
 
   useEffect(() => {
     const getPlanetsAPI = async () => {
-      const { results } = await fetch('https://swapi.dev/api/planets').then((response) => response.json());
+      const { results } = await fetch('https://swapi-trybe.herokuapp.com/api/planets/').then((response) => response.json()) || [];
       for (let i = 0; i < results.length; i += 1) {
         delete results[i].residents;
       }
@@ -20,12 +20,6 @@ function Provider({ children }) {
     getPlanetsAPI();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const test = (value) => {
-  //   const filteredArray = dataAPI.filter((item) => item.name === value)
-  //     .fil;
-  //   setFilteredData(filteredArray);
-  // };
 
   const contextValue = useMemo(() => ({
     filteredData,
