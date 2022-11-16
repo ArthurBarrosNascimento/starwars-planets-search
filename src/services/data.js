@@ -11,3 +11,13 @@ export const arrayType = [
   'menor que',
   'igual a',
 ];
+
+export const radioOptions = [
+  'ASC',
+  'DESC',
+];
+
+export const radioTestIds = [
+  'column-sort-input-asc',
+  'column-sort-input-desc',
+];

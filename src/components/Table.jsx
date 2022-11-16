@@ -31,7 +31,7 @@ function Table() {
       <tbody>
         { filteredData.map((e) => (
           <tr key={ e.name }>
-            <td>{e.name}</td>
+            <td data-testid="planet-name">{e.name}</td>
             <td>{e.rotation_period}</td>
             <td>{e.orbital_period}</td>
             <td>{e.diameter}</td>
