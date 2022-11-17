@@ -13,18 +13,15 @@ function Provider({ children }) {
   const [columnOptions, setColumnOptions] = useState([]);
   const [filter, setFilters] = useState([]);
   const [filterOn, setFilterOn] = useState(false);
-  // const [number, setNumber] = useState('');
 
-  // https://swapi-trybe.herokuapp.com/api/planets/
   useEffect(() => {
     setColumnOptions(arrayColumn);
     const getPlanetsAPI = async () => {
-      const { results } = await fetch('https://swapi.dev/api/planets').then((response) => response.json()) || [];
+      const { results } = await fetch('https://swapi.dev/api/planets').then((response) => response.json()) || { results: [] };
       for (let i = 0; i < results.length; i += 1) {
         delete results[i].residents;
       }
       setDataAPI(results);
-      console.log(results);
       setFilteredData(results);
     };
 
@@ -43,11 +40,10 @@ function Provider({ children }) {
         setFilteredData(filteredData
           .filter((item) => item[fil.filterColumn] < Number(fil.filterNumber)));
         break;
-      case arrayType[2]:
+      default:
         setFilteredData(filteredData
           .filter((item) => item[fil.filterColumn] === (fil.filterNumber)));
         break;
-      default: return filteredData;
       }
     });
     setFilterOn(false);

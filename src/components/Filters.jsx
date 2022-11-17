@@ -24,8 +24,6 @@ function Filters() {
     setFilteredData(result);
   };
 
-  console.log(columnOptions);
-  console.log(filter);
   return (
     <div>
       <label htmlFor="name">
@@ -41,11 +39,11 @@ function Filters() {
           name=""
           id=""
           value={ column }
-          onClick={ ({ target }) => setColumn(target.value) }
+          onChange={ ({ target }) => setColumn(target.value) }
           data-testid="column-filter"
         >
           {columnOptions.map((option) => (
-            <option key={ option }>{option}</option>
+            <option key={ option } value={ option }>{option}</option>
           ))}
         </select>
 
@@ -53,11 +51,11 @@ function Filters() {
           name="type"
           id="type"
           value={ comparison }
-          onClick={ ({ target }) => setComparison(target.value) }
+          onChange={ ({ target }) => setComparison(target.value) }
           data-testid="comparison-filter"
         >
           {arrayType.map((type) => (
-            <option key={ type }>{type}</option>
+            <option key={ type } value={ type }>{type}</option>
           ))}
         </select>
 
